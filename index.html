@@ -639,8 +639,8 @@ function onClaimed(){
     $('hSub').innerHTML=`#${pad4(p.no)} 사진이 폰으로 전달됐어요.<br>폰에서 꾸며보세요.`;
     $('nfcUrl').textContent=decodeURI(receiveUrl());$('photoUrl').textContent=decodeURI(receiveUrl(p.id));$('photoOpen').href=receiveUrl(p.id);
     $('photoLabel').textContent=`#${pad4(p.no)} 사진 링크 (태그한 폰에 열리는 주소)`;
-    $('links').hidden=false;$('keyHint').textContent='스페이스바 또는 엔터 = 다음 사람';
-    clearTimeout(homeTimer);homeTimer=setTimeout(()=>{if(mode==='hand')backToLive()},30000)}
+    $('links').hidden=backend.name==='ONLINE';$('keyHint').textContent='스페이스바 또는 엔터 = 다음 사람';
+    clearTimeout(homeTimer);homeTimer=setTimeout(()=>{if(mode==='hand')backToLive()},backend.name==='ONLINE'?1800:30000)}
 }
 document.addEventListener('click',e=>{const b=e.target.closest('[data-copy]');if(!b)return;const t=$(b.dataset.copy).textContent;
   const done=()=>{b.textContent='복사됨';setTimeout(()=>b.textContent='복사',1200)};
