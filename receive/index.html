@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,maximum-scale=1">
-<title>FROM NOW-ON 사진 받기</title>
+<title>from now on 사진 받기</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=IBM+Plex+Sans+KR:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&family=Nanum+Pen+Script&display=swap">
@@ -89,14 +89,14 @@ button{font-family:inherit}
 </head>
 <body>
 <div class="wrap">
-  <div class="top">FROM NOW-ON <span>DIAL · RECEIVE</span></div>
+  <div class="top">from now on <span>DIAL · RECEIVE</span></div>
 
   <!-- 1. 받은 사진 -->
   <section id="got" class="col" hidden>
     <div class="state"><i>✓</i><div><h1>다이얼 연동 완료</h1><p>부스에서 고른 사진이 도착했어요</p></div></div>
     <div class="card" style="margin-top:10px">
       <img id="photo" alt="내 사진">
-      <div class="strip"><div><b>D+1</b><small>FROM NOW ON</small></div><div class="r"><strong id="no">#0001</strong><span id="time"></span><br>ARCHIVED</div></div>
+      <div class="strip"><div><b>D+1</b><small>from now on</small></div><div class="r"><strong id="no">#0001</strong><span id="time"></span><br>ARCHIVED</div></div>
     </div>
     <div class="col" style="margin-top:10px">
       <button class="btn main" id="goEdit" type="button">프레임 고르고 꾸미기</button>
@@ -210,14 +210,14 @@ const FRAMES=[
   {id:'card',name:'D+1 카드',draw(g){
     g.fillStyle='#FFF3E2';g.fillRect(0,0,OW,OH);cover(g,photoImg,0,0,OW,1350);
     g.fillStyle='#F26A21';g.font=`700 150px ${FONT.num}`;g.textBaseline='alphabetic';g.textAlign='left';g.fillText('D+1',60,1540);
-    g.fillStyle='#8A6A52';g.font=`500 28px ${FONT.num}`;g.fillText('F R O M   N O W   O N',66,1585);
-    g.textAlign='right';g.fillStyle='#3B2416';g.font=`700 44px ${FONT.num}`;g.fillText('FROM NOW-ON',OW-60,1470);
+    g.fillStyle='#8A6A52';g.font=`500 28px ${FONT.num}`;g.fillText('f r o m   n o w   o n',66,1585);
+    g.textAlign='right';g.fillStyle='#3B2416';g.font=`700 44px ${FONT.num}`;g.fillText('from now on',OW-60,1470);
     g.fillStyle='#8A6A52';g.font=`500 34px ${FONT.num}`;g.fillText(dateStr,OW-60,1520);g.fillText(no(),OW-60,1566)}},
   {id:'pass',name:'탑승권',draw(g){
     g.fillStyle='#FFFFFF';g.fillRect(0,0,OW,OH);
     g.fillStyle='#F26A21';g.fillRect(0,0,OW,150);
     g.fillStyle='#fff';g.font=`700 40px ${FONT.num}`;g.textAlign='left';g.textBaseline='middle';g.fillText('BOARDING PASS',60,78);
-    g.textAlign='right';g.font=`500 30px ${FONT.mono}`;g.fillText('FROM NOW-ON',OW-60,78);
+    g.textAlign='right';g.font=`500 30px ${FONT.mono}`;g.fillText('from now on',OW-60,78);
     cover(g,photoImg,60,190,960,1000);
     g.setLineDash([14,12]);g.strokeStyle='#D8D2CB';g.lineWidth=4;g.beginPath();g.moveTo(40,1240);g.lineTo(OW-40,1240);g.stroke();g.setLineDash([]);
     g.fillStyle='#F4F1EC';g.beginPath();g.arc(0,1240,34,0,7);g.arc(OW,1240,34,0,7);g.fill();
@@ -232,7 +232,7 @@ const FRAMES=[
     g.fillStyle='#F4F1EC';for(let y=40;y<OH;y+=86){rr(g,26,y,44,58,10);g.fill();rr(g,OW-70,y,44,58,10);g.fill()}
     cover(g,photoImg,110,150,860,1075);
     g.fillStyle='#FF8847';g.font=`500 26px ${FONT.mono}`;g.textAlign='left';g.textBaseline='alphabetic';
-    g.fillText('FROM NOW-ON 400',112,118);g.textAlign='right';g.fillText('▶ '+pad4(PH?PH.no:1)+'A',OW-112,118);
+    g.fillText('from now on 400',112,118);g.textAlign='right';g.fillText('▶ '+pad4(PH?PH.no:1)+'A',OW-112,118);
     g.font=`700 46px ${FONT.mono}`;g.fillStyle='#FF9A4D';g.shadowColor='rgba(255,120,40,.8)';g.shadowBlur=12;
     const d=dateStr.slice(2).replace(/\./g,' ');g.fillText("'"+d,940,1200);g.shadowBlur=0;
     g.fillStyle='#F4F1EC';g.font=`400 92px ${FONT.pen}`;g.textAlign='center';g.fillText('오늘, 여기서부터.',OW/2,1400);
@@ -241,14 +241,14 @@ const FRAMES=[
     g.fillStyle='#EDE8E1';g.fillRect(0,0,OW,OH);
     g.save();g.shadowColor='rgba(40,20,5,.25)';g.shadowBlur=40;g.shadowOffsetY=16;g.fillStyle='#FCFBF8';g.fillRect(70,70,940,1480);g.restore();
     cover(g,photoImg,120,120,840,1050);
-    g.fillStyle='#2A2420';g.font=`400 104px ${FONT.pen}`;g.textAlign='left';g.textBaseline='alphabetic';g.fillText('From now on,',140,1330);
+    g.fillStyle='#2A2420';g.font=`400 104px ${FONT.pen}`;g.textAlign='left';g.textBaseline='alphabetic';g.fillText('from now on,',140,1330);
     g.fillStyle='#F26A21';g.font=`400 78px ${FONT.pen}`;g.fillText('오늘부터 기록',150,1430);
     g.fillStyle='#8A827A';g.font=`500 26px ${FONT.mono}`;g.textAlign='right';g.fillText(dateStr+'  '+no(),940,1500)}},
   {id:'mini',name:'미니멀',draw(g){
     g.fillStyle='#F4F1EC';g.fillRect(0,0,OW,OH);
     g.save();rr(g,50,50,980,1300,30);g.clip();cover(g,photoImg,50,50,980,1300);g.restore();
     g.strokeStyle='#2A2420';g.lineWidth=2;g.beginPath();g.moveTo(50,1440);g.lineTo(OW-50,1440);g.stroke();
-    g.fillStyle='#2A2420';g.font=`700 34px ${FONT.num}`;g.textAlign='left';g.textBaseline='alphabetic';g.fillText('FROM NOW-ON',50,1415);
+    g.fillStyle='#2A2420';g.font=`700 34px ${FONT.num}`;g.textAlign='left';g.textBaseline='alphabetic';g.fillText('from now on',50,1415);
     g.font=`500 26px ${FONT.mono}`;g.textAlign='right';g.fillStyle='#8A827A';g.fillText(dateStr,OW-50,1415);
     g.textAlign='left';g.fillText('CARE CONTINUES',50,1500);g.textAlign='right';g.fillText(no(),OW-50,1500)}}
 ];
@@ -266,8 +266,8 @@ function STICKERS(){return[
   {id:'heart',name:'하트',w:150,src:svg(100,90,`<path d="M50 84C20 62 4 46 4 28 4 14 15 4 28 4c9 0 17 5 22 13C55 9 63 4 72 4c13 0 24 10 24 24 0 18-16 34-46 56z" fill="${OL}"/><path d="M26 20c-6 2-10 7-10 13" stroke="#fff" stroke-width="5" fill="none" stroke-linecap="round" opacity=".7"/>`)},
   {id:'star',name:'별',w:140,src:svg(100,100,`<path d="M50 4l13 30 32 3-24 21 7 32-28-16-28 16 7-32L5 37l32-3z" fill="${CR}" stroke="${OR}" stroke-width="4" stroke-linejoin="round"/>`)},
   {id:'spark',name:'반짝',w:120,src:svg(100,100,`<path d="M50 2C54 34 66 46 98 50 66 54 54 66 50 98 46 66 34 54 2 50 34 46 46 34 50 2z" fill="${BL}"/><path d="M82 8c1.5 8 4 10.5 12 12-8 1.5-10.5 4-12 12-1.5-8-4-10.5-12-12 8-1.5 10.5-4 12-12z" fill="${OL}"/>`)},
-  {id:'dday',name:'D+1',w:190,src:svg(100,100,`<circle cx="50" cy="50" r="47" fill="${OR}"/><circle cx="50" cy="50" r="40" fill="none" stroke="#fff" stroke-width="1.5" stroke-dasharray="3 3"/><text x="50" y="58" font-family="Space Grotesk,sans-serif" font-size="30" font-weight="700" text-anchor="middle" fill="#fff">D+1</text><text x="50" y="74" font-family="Space Grotesk,sans-serif" font-size="7" font-weight="500" letter-spacing="1.5" text-anchor="middle" fill="#fff">FROM NOW ON</text>`)},
-  {id:'tape',name:'테이프',w:300,src:svg(160,44,`<path d="M4 6l4 4-4 4 4 4-4 4 4 4-4 4 4 4-4 4h152l-4-4 4-4-4-4 4-4-4-4 4-4-4-4 4-4-4-4z" fill="${CR}" opacity=".95"/><text x="80" y="28" font-family="JetBrains Mono,monospace" font-size="13" font-weight="700" text-anchor="middle" fill="${OR}" letter-spacing="2">FROM NOW ON</text>`)},
+  {id:'dday',name:'D+1',w:190,src:svg(100,100,`<circle cx="50" cy="50" r="47" fill="${OR}"/><circle cx="50" cy="50" r="40" fill="none" stroke="#fff" stroke-width="1.5" stroke-dasharray="3 3"/><text x="50" y="58" font-family="Space Grotesk,sans-serif" font-size="30" font-weight="700" text-anchor="middle" fill="#fff">D+1</text><text x="50" y="74" font-family="Space Grotesk,sans-serif" font-size="7" font-weight="500" letter-spacing="1.5" text-anchor="middle" fill="#fff">from now on</text>`)},
+  {id:'tape',name:'테이프',w:300,src:svg(160,44,`<path d="M4 6l4 4-4 4 4 4-4 4 4 4-4 4 4 4-4 4h152l-4-4 4-4-4-4 4-4-4-4 4-4-4-4 4-4-4-4z" fill="${CR}" opacity=".95"/><text x="80" y="28" font-family="JetBrains Mono,monospace" font-size="13" font-weight="700" text-anchor="middle" fill="${OR}" letter-spacing="2">from now on</text>`)},
   {id:'stamp',name:'날짜 도장',w:220,src:svg(120,120,`<g fill="none" stroke="${OR}" stroke-width="3"><circle cx="60" cy="60" r="54"/><circle cx="60" cy="60" r="44" stroke-width="1.5"/></g><text x="60" y="52" font-family="JetBrains Mono,monospace" font-size="10" font-weight="700" text-anchor="middle" fill="${OR}" letter-spacing="2">ARCHIVED</text><text x="60" y="72" font-family="Space Grotesk,sans-serif" font-size="15" font-weight="700" text-anchor="middle" fill="${OR}">${dateStr||'2026.12.05'}</text><text x="60" y="88" font-family="JetBrains Mono,monospace" font-size="9" text-anchor="middle" fill="${OR}">${no()}</text>`)},
   {id:'bubble',name:'말풍선',w:240,src:svg(140,90,`<path d="M14 8h112a10 10 0 0 1 10 10v40a10 10 0 0 1-10 10H54l-18 16 2-16H14A10 10 0 0 1 4 58V18A10 10 0 0 1 14 8z" fill="#fff" stroke="${IK}" stroke-width="2.5"/><text x="70" y="47" font-family="IBM Plex Sans KR,sans-serif" font-size="20" font-weight="700" text-anchor="middle" fill="${IK}">오늘부터!</text>`)},
   {id:'check',name:'기록 완료',w:260,src:svg(150,50,`<rect x="3" y="3" width="144" height="44" rx="22" fill="${BL}"/><circle cx="26" cy="25" r="12" fill="#fff"/><path d="M20 25l4 4 8-8" stroke="${BL}" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/><text x="88" y="31" font-family="IBM Plex Sans KR,sans-serif" font-size="16" font-weight="700" text-anchor="middle" fill="#fff">기록 완료</text>`)}
@@ -387,10 +387,10 @@ $('reEdit').addEventListener('click',()=>{rmode='off';$('fin').hidden=true;$('ed
 
 /* 저장: 공유 시트(폰) → 다운로드 → 길게 눌러 저장 */
 $('save').addEventListener('click',async()=>{
-  const name=`FROM-NOW-ON_${pad4(PH?PH.no:1)}.jpg`;
+  const name=`fromnowon_${pad4(PH?PH.no:1)}.jpg`;
   const blob=await new Promise(r=>colC.toBlob(r,'image/jpeg',.92));
   try{const file=new File([blob],name,{type:'image/jpeg'});
-    if(navigator.canShare&&navigator.canShare({files:[file]})){await navigator.share({files:[file],title:'FROM NOW-ON'});return}}catch(e){if(e&&e.name==='AbortError')return}
+    if(navigator.canShare&&navigator.canShare({files:[file]})){await navigator.share({files:[file],title:'from now on'});return}}catch(e){if(e&&e.name==='AbortError')return}
   const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;document.body.appendChild(a);a.click();setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove()},1000);
   $('saveHint').textContent='저장됐어요. 안 보이면 사진을 길게 눌러 저장하세요';
 });
