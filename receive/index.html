@@ -193,7 +193,7 @@ async function server(){
   none('사진을 불러오는 중…',' ');
   try{
     const sv=await server();
-    if(pid){const loc=pid.startsWith('local-');if(loc)document.querySelector('.top span').innerHTML='<a href="/" style="color:inherit">← 다시 찍기</a>';const ph=loc?get('fno-photo-'+pid):await sv.photo(pid);$('none').hidden=true;
+    if(pid){const loc=pid.startsWith('local-');if(loc)document.querySelector('.top span').innerHTML='<a href="/?auto=1" style="color:inherit">← 다시 찍기</a>';if(loc){const sb=document.getElementById('saveBox');const a2=document.createElement('a');a2.href='/?auto=1';a2.className='btn';a2.textContent='다시 찍기';a2.style.cssText='text-align:center;text-decoration:none';sb.appendChild(a2)}const ph=loc?get('fno-photo-'+pid):await sv.photo(pid);$('none').hidden=true;
       if(ph)showGot(ph);else none('사진을 찾을 수 없어요','다음 촬영이 시작돼 사진이 사라졌거나<br>보관 기간이 지났어요.')}
     else{const id=await sv.claim();
       if(id)location.replace('?p='+encodeURIComponent(id));else none('지금 받을 사진이 없어요','부스에서 사진을 고른 뒤<br>다이얼에 폰을 다시 대 주세요.')}
