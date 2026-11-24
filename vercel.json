@@ -14,11 +14,11 @@
   "rewrites": [
     {
       "source": "/ddp",
-      "destination": "/index.html"
+      "destination": "/"
     },
     {
       "source": "/ddp/receive",
-      "destination": "/receive/index.html"
+      "destination": "/receive"
     }
   ]
 }
