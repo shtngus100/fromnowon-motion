@@ -168,8 +168,9 @@ function none(t,x){if(t)$('noneTitle').textContent=t;if(x)$('noneText').innerHTM
 /* 서버: config.js 에 Firebase 설정이 있으면 실제 서버, 없으면 데모(같은 브라우저 저장공간) */
 const CFG=window.FNO_CONFIG||null;
 function myToken(){let t=get('fno-token');if(!t){t=Math.random().toString(36).slice(2)+Date.now().toString(36);put('fno-token',t)}return t}
+const ST=(()=>{const q=new URLSearchParams(location.search).get('s');if(q)return q.toLowerCase();const seg=location.pathname.split('/').filter(Boolean)[0]||'';return /^[a-z0-9-]{1,20}$/.test(seg)&&seg!=='receive'&&seg!=='api'?seg:'main'})();
 async function server(){
-  if(!CFG&&location.protocol.startsWith('http')){const p=await fetch('/api/status?id=probe').catch(()=>null);if(p&&p.ok)return{async photo(id){const r=await fetch('/api/photo?id='+encodeURIComponent(id));return r.ok?r.json():null},async claim(){const r=await fetch('/api/claim',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({token:myToken()})});return (await r.json()).id}}}
+  if(!CFG&&location.protocol.startsWith('http')){const p=await fetch('/api/status?id=probe').catch(()=>null);if(p&&p.ok)return{async photo(id){const r=await fetch('/api/photo?id='+encodeURIComponent(id));return r.ok?r.json():null},async claim(){const r=await fetch('/api/claim',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({token:myToken(),s:ST})});return (await r.json()).id}}}
   if(!CFG)return{
     async photo(id){return get('fno-photo-'+id)},
     async claim(){const c=get('fno-current'),mine=get('fno-mine')||[];
