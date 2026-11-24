@@ -15,3 +15,7 @@ export async function body(req) {
   if (typeof req.body === 'string') return JSON.parse(req.body || '{}');
   const chunks = []; for await (const c of req) chunks.push(c); return JSON.parse(Buffer.concat(chunks).toString() || '{}');
 }
+// 부스 구분: main(기본) / ddp 등. 키 이름에 붙임
+export function station(v) { const s = String(v || 'main').toLowerCase(); return /^[a-z0-9-]{1,20}$/.test(s) ? s : 'main'; }
+export const curKey = (s) => s === 'main' ? 'booth:current' : 'booth:current:' + s;
+export const cntKey = (s) => s === 'main' ? 'booth:count' : 'booth:count:' + s;
