@@ -169,6 +169,7 @@ function none(t,x){if(t)$('noneTitle').textContent=t;if(x)$('noneText').innerHTM
 const CFG=window.FNO_CONFIG||null;
 function myToken(){let t=get('fno-token');if(!t){t=Math.random().toString(36).slice(2)+Date.now().toString(36);put('fno-token',t)}return t}
 async function server(){
+  if(!CFG&&location.protocol.startsWith('http')){const p=await fetch('/api/status?id=probe').catch(()=>null);if(p&&p.ok)return{async photo(id){const r=await fetch('/api/photo?id='+encodeURIComponent(id));return r.ok?r.json():null},async claim(){const r=await fetch('/api/claim',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({token:myToken()})});return (await r.json()).id}}}
   if(!CFG)return{
     async photo(id){return get('fno-photo-'+id)},
     async claim(){const c=get('fno-current'),mine=get('fno-mine')||[];
