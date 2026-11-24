@@ -19,6 +19,14 @@
     {
       "source": "/ddp/receive",
       "destination": "/receive"
+    },
+    {
+      "source": "/exhibition",
+      "destination": "/"
+    },
+    {
+      "source": "/exhibition/receive",
+      "destination": "/receive"
     }
   ]
 }
