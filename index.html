@@ -343,7 +343,7 @@ function drawFrameHUD(now){
   fx.font=`500 12px "IBM Plex Sans KR",sans-serif`;fx.fillStyle=ink(.7);fx.textAlign='left';
   fx.fillText(`${d.getMonth()+1}월 ${d.getDate()}일 ${days[d.getDay()]}요일 ${p2(d.getHours())}:${p2(d.getMinutes())}`,44,44);
   txt('#FF8847',44,62,9,ink(.45));
-  txt('FROM NOW-ON / LIVE FIELD 01',44,86,13,ink(.9),'left',700);
+  txt('FROM NOW-ON / LIVE FIELD '+(typeof ST==='undefined'||ST==='main'?'01':'02 · '+ST.toUpperCase()),44,86,13,ink(.9),'left',700);
   const blink=Math.floor(now/600)%2===0;
   fx.fillStyle=blink?C.orange:ink(.25);fx.beginPath();fx.arc(48,101,3.5,0,7);fx.fill();
   txt('REC  ·  POSTURE → RECORD',58,105,10,ink(.6));
@@ -467,10 +467,11 @@ async function firebaseBackend(cfg){
     }
   };
 }
-function apiBackend(){const j=async(u,o)=>{const r=await fetch(u,o);if(!r.ok)throw new Error('api '+r.status);return r.json()};const post=(u,b)=>j(u,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(b)});return{name:'ONLINE',archive:img=>post('/api/archive',{image:img}),onClaimed(id,cb){let t=setInterval(async()=>{try{const s=await j('/api/status?id='+id);if(s.claimed&&t){clearInterval(t);t=0;cb()}}catch(e){}},1500);return()=>{clearInterval(t);t=0}},discard:id=>post('/api/discard',{id})}}
+const ST=(()=>{const q=new URLSearchParams(location.search).get('s');if(q)return q.toLowerCase();const seg=location.pathname.split('/').filter(Boolean)[0]||'';return /^[a-z0-9-]{1,20}$/.test(seg)&&seg!=='receive'&&seg!=='api'?seg:'main'})();
+function apiBackend(){const j=async(u,o)=>{const r=await fetch(u,o);if(!r.ok)throw new Error('api '+r.status);return r.json()};const post=(u,b)=>j(u,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(b)});return{name:'ONLINE',archive:img=>post('/api/archive',{image:img,s:ST}),onClaimed(id,cb){let t=setInterval(async()=>{try{const s=await j('/api/status?id='+id);if(s.claimed&&t){clearInterval(t);t=0;cb()}}catch(e){}},1500);return()=>{clearInterval(t);t=0}},discard:id=>post('/api/discard',{id,s:ST})}}
 let backend=demoBackend();
-if(!FIREBASE_CONFIG&&location.protocol.startsWith('http'))fetch('/api/status?id=probe').then(r=>{if(r.ok){backend=apiBackend();$('modeTag').textContent='SERVER · ONLINE'}else $('modeTag').textContent='SERVER · 저장소 연결 전 (DEMO)'}).catch(()=>{});
-if(FIREBASE_CONFIG){firebaseBackend(FIREBASE_CONFIG).then(b=>{backend=b;$('modeTag').textContent='SERVER · ONLINE'}).catch(e=>{console.warn(e);$('modeTag').textContent='SERVER · 연결 실패 → DEMO'})}
+if(!FIREBASE_CONFIG&&location.protocol.startsWith('http'))fetch('/api/status?id=probe').then(r=>{if(r.ok){backend=apiBackend();$('modeTag').textContent='SERVER · ONLINE'+(ST==='main'?'':' · '+ST.toUpperCase())}else $('modeTag').textContent='SERVER · 저장소 연결 전 (DEMO)'}).catch(()=>{});
+if(FIREBASE_CONFIG){firebaseBackend(FIREBASE_CONFIG).then(b=>{backend=b;$('modeTag').textContent='SERVER · ONLINE'+(ST==='main'?'':' · '+ST.toUpperCase())}).catch(e=>{console.warn(e);$('modeTag').textContent='SERVER · 연결 실패 → DEMO'})}
 $('modeTag').textContent=FIREBASE_CONFIG?'SERVER · CONNECTING':'SERVER · DEMO  (엔터·스페이스 = 폰 태그)';
 
 /* ================== 메인 루프 ================== */
