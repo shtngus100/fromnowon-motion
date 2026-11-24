@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>FROM NOW-ON Photo Booth</title>
+<title>from now on Photo Booth</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=IBM+Plex+Sans+KR:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap">
@@ -158,7 +158,7 @@ button{font-family:inherit}
     <div class="hcard">
       <img id="hImg" alt="선택한 사진">
       <div class="hstrip">
-        <div><b>D+1</b><small>FROM NOW ON</small></div>
+        <div><b>D+1</b><small>from now on</small></div>
         <div class="r"><strong id="hNo">#0001</strong><span id="hTime"></span><br>ARCHIVED</div>
       </div>
     </div>
@@ -343,7 +343,7 @@ function drawFrameHUD(now){
   fx.font=`500 12px "IBM Plex Sans KR",sans-serif`;fx.fillStyle=ink(.7);fx.textAlign='left';
   fx.fillText(`${d.getMonth()+1}월 ${d.getDate()}일 ${days[d.getDay()]}요일 ${p2(d.getHours())}:${p2(d.getMinutes())}`,44,44);
   txt('#FF8847',44,62,9,ink(.45));
-  txt('FROM NOW-ON / LIVE FIELD '+({web:'00 · WEB',exhibition:'01 · EXHIBITION',ddp:'02 · DDP'}[ST]||'01'),44,86,13,ink(.9),'left',700);
+  txt('from now on / LIVE FIELD '+({web:'00 · WEB',exhibition:'01 · EXHIBITION',ddp:'02 · DDP'}[ST]||'01'),44,86,13,ink(.9),'left',700);
   const blink=Math.floor(now/600)%2===0;
   fx.fillStyle=blink?C.orange:ink(.25);fx.beginPath();fx.arc(48,101,3.5,0,7);fx.fill();
   txt('REC  ·  POSTURE → RECORD',58,105,10,ink(.6));
@@ -352,7 +352,7 @@ function drawFrameHUD(now){
   txt(`${Math.round(fps)} FPS  ·  ${procMs.toFixed(1)} ms  ·  ${mlStatus}`,W-44,66,10,ink(.55),'right');
   // 하단
   fx.strokeStyle=ink(.5);fx.beginPath();fx.moveTo(44,H-52);fx.lineTo(W-44,H-52);fx.stroke();
-  txt('FROM NOW, ON  —  CARE CONTINUES',44,H-30,11,ink(.75));
+  txt('from now on  —  care continues',44,H-30,11,ink(.75));
   txt('GRADUATION EXHIBITION 2026  /  FIG. LIVE',W-44,H-30,11,ink(.75),'right');
 }
 function drawPersonHUD(now){
